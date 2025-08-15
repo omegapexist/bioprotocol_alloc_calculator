@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Protocol Allocation Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧬 Bio Protocol</h1>
+            <h2>Allocation Calculator</h2>
+        </header>
+
+        <div class="calculator-card">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="totalPledge">Total Pledged BioXP</label>
+                    <div class="range-container">
+                        <input type="range" id="totalPledge" min="20000000" max="200000000" step="1000000" value="50000000">
+                        <span class="range-value" id="totalPledgeValue">50,000,000</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="userBioXP">Your BioXP Points</label>
+                    <input type="number" id="userBioXP" placeholder="Enter your BioXP points" min="0">
+                </div>
+
+                <button id="calculateBtn" class="calculate-btn">Calculate</button>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h3>📊 Calculation Results</h3>
+                
+                <div class="result-grid">
+                    <div class="result-card">
+                        <div class="result-label">Your Allocation</div>
+                        <div class="result-value" id="allocationResult">$0</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-label">BioXP Ratio</div>
+                        <div class="result-value" id="bioXPRatio">0%</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Maximum Limit</div>
+                        <div class="result-value" id="maxLimit">$385</div>
+                    </div>
+                </div>
+
+                <div class="calculation-details">
+                    <h4>🔍 Calculation Details</h4>
+                    <div class="detail-item">
+                        <span>Normal Calculation:</span>
+                        <span id="normalCalculation">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>0.5% Limit:</span>
+                        <span id="maxLimitDetail">$385</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Result:</span>
+                        <span id="finalResult">$0</span>
+                    </div>
+                </div>
+
+                <div class="potential-returns">
+                    <h4>🚀 Potential Returns</h4>
+                    <div class="returns-grid">
+                        <div class="return-item">
+                            <span>Initial FDV: $205k</span>
+                            <span></span>
+                        </div>
+                        <div class="return-item">
+                            <span>Potential FDV: $1M</span>
+                            <div class="value-group">
+                                <span id="potentialValue1M">$0</span>
+                                <span class="multiplier" id="multiplier1M">0x</span>
+                            </div>
+                        </div>
+                        <div class="return-item">
+                            <span>Potential FDV: $5M</span>
+                            <div class="value-group">
+                                <span id="potentialValue5M">$0</span>
+                                <span class="multiplier" id="multiplier5M">0x</span>
+                            </div>
+                        </div>
+                        <div class="return-item highlight">
+                            <span>Potential FDV: $10M</span>
+                            <div class="value-group">
+                                <span id="potentialValue10M">$0</span>
+                                <span class="multiplier" id="multiplier10M">0x</span>
+                            </div>
+                        </div>
+                        <div class="return-item">
+                            <span>Potential FDV: $50M</span>
+                            <div class="value-group">
+                                <span id="potentialValue50M">$0</span>
+                                <span class="multiplier" id="multiplier50M">0x</span>
+                            </div>
+                        </div>
+                        <div class="return-item">
+                            <span>Potential FDV: $100M</span>
+                            <div class="value-group">
+                                <span id="potentialValue100M">$0</span>
+                                <span class="multiplier" id="multiplier100M">0x</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>ℹ️ How It Works</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>📋 Requirements</h4>
+                    <ul>
+                        <li>Own $BIO tokens</li>
+                        <li>Accumulate BioXP points</li>
+                        <li>Participate in launches</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4>🎯 Launch Target</h4>
+                    <ul>
+                        <li>Target: $77k $BIO</li>
+                        <li>37.5% to participants</li>
+                        <li>12.5% to liquidity</li>
+                        <li>50% for project</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4>⚖️ Fair Distribution</h4>
+                    <ul>
+                        <li>Maximum 0.5% limit</li>
+                        <li>Based on BioXP ratio</li>
+                        <li>Whale protection</li>
+                        <li>14 days time limit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
