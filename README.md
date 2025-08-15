@@ -8,7 +8,6 @@ Allocation calculator for participating in launches with BioXP loyalty points on
 - **Real-time Results**: Get your allocation instantly by entering your BioXP points
 - **Detailed Analysis**: Normal calculation, maximum limit and potential return information
 - **Responsive Design**: Perfect appearance on mobile and desktop devices
-- **English Interface**: Full English language support
 
 ## 🚀 Usage
 
