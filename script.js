@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const bioXPRatio = (userBioXP / totalPledge) * 100;
         
         // Potential return calculation - for all FDV levels
-        const potentialValues = POTENTIAL_FDVS.map(fdv => (userAllocation / TOKENS_FOR_SALE) * fdv);
+        const potentialValues = POTENTIAL_FDVS.map(fdv => (userAllocation / INITIAL_FDV) * fdv);
         
         // Multiplier calculation (how many x)
-        const multipliers = POTENTIAL_FDVS.map(fdv => (fdv / TOKENS_FOR_SALE).toFixed(1));
+        const multipliers = POTENTIAL_FDVS.map(fdv => (fdv / INITIAL_FDV).toFixed(1));
         
         // Display results
         displayResults({
@@ -77,9 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('allocationResult').textContent = formatCurrency(results.allocation);
         document.getElementById('bioXPRatio').textContent = results.bioXPRatio.toFixed(4) + '%';
         document.getElementById('maxLimit').textContent = formatCurrency(results.maxLimit);
-        document.getElementById('normalCalculation').textContent = formatCurrency(results.normalCalculation);
-        document.getElementById('maxLimitDetail').textContent = formatCurrency(results.maxLimit);
-        document.getElementById('finalResult').textContent = formatCurrency(results.allocation);
+
         
         // Display all potential values and multipliers
         document.getElementById('potentialValue1M').textContent = formatCurrency(results.potentialValues[0]);
@@ -111,47 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Example calculation on page load
-    setTimeout(() => {
-        userBioXPInput.value = '100000';
-        calculateAllocation();
-    }, 500);
+
     
-    // Clear placeholder when input is focused
-    userBioXPInput.addEventListener('focus', function() {
-        if (this.value === '100000') {
-            this.value = '';
-        }
-    });
+
     
-    // Restore example value if input is empty when blurred
-    userBioXPInput.addEventListener('blur', function() {
-        if (!this.value) {
-            this.value = '100000';
-        }
-    });
-    
-    // Tooltip-like display for range slider
-    totalPledgeSlider.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percent = x / rect.width;
-        const value = this.min + (this.max - this.min) * percent;
-        
-        // Show tooltip (optional)
-        this.title = formatNumber(Math.round(value));
-    });
-    
-    // Additional controls for responsive design
-    function handleResize() {
-        if (window.innerWidth <= 768) {
-            // Mobile optimizations
-            document.body.style.fontSize = '14px';
-        } else {
-            document.body.style.fontSize = '16px';
-        }
-    }
-    
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial load
+
 });
